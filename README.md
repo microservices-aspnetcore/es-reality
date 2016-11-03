@@ -9,8 +9,8 @@ In some more extreme cases, you will see a query-only service and a write-only s
 
 |Resource|Method|Description|
 |---|---|---|
-|/api/members| GET | Return the current state (location) for all members |
-|/api/members/{memberId} | GET | Return the current state (location) for a given member |
-|/api/members/{memberId} | PUT | Set the current state (location) for a given member |
+|/api/reality/members| GET | Return the current state (location) for all members |
+|/api/reality/members/{memberId} | GET | Return the current state (location) for a given member |
+|/api/reality/members/{memberId} | PUT | Set the current state (location) for a given member |
 
 
