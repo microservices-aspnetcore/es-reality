@@ -3,14 +3,11 @@ This is the reality service for the Event Sourcing/CQRS sample from the book. Di
 
 In the case of our sample, _reality_ is the current location of all members as indicated by the most recent report of their location. It is important to remember that this service does _not_ expose the entire event store. You cannot get the complete history of all location events, you can _only_ get the most recent location for any given member or the current locations of all members.
 
-In some more extreme cases, you will see a query-only service and a write-only service for the reality service. To keep the samples from the book a little easier to follow, we have not separated these. Also, this particular type of separation often leads to using a database as an integration layer, which is an _absolute_ anti-pattern for cloud native.
+In some more higher-scale architectures with extreme performance demands, you might see a query-only service and a write-only service for the reality service/cache. To keep the samples from the book a little easier to follow, we have not separated these. Also, this particular type of separation often leads to using a database as an integration layer, which is an _absolute_ anti-pattern for cloud native. 
+
+_Note_ While using a full database for an integration layer is considered an anti-pattern, allowing two services to reach into the same distributed cache is actually a recommended optimization _provided the services both can handle cache misses_. In other words, the cache cannot be critical path and the application must be able to tolerate the cache going down and losing data.
 
 # Reality API
-
-|Resource|Method|Description|
-|---|---|---|
-|/api/reality/members| GET | Return the current state (location) for all members |
-|/api/reality/members/{memberId} | GET | Return the current state (location) for a given member |
-|/api/reality/members/{memberId} | PUT | Set the current state (location) for a given member |
+TBD
 
 
