@@ -42,6 +42,15 @@ namespace StatlerWaldorfCorp.RealityService.Location.Redis
             db.HashSet(teamId.ToString(), memberLocation.MemberID.ToString(), memberLocation.ToJsonString());            
         }
 
+        public MemberLocation Get(Guid teamId, Guid memberId)
+        {
+            IDatabase db = connection.GetDatabase();
+
+            var value = (string)db.HashGet(teamId.ToString(), memberId.ToString());
+            MemberLocation ml = MemberLocation.FromJsonString(value);
+            return ml;
+        }
+
         private IList<MemberLocation> ConvertRedisValsToLocationList(RedisValue[] vals)
         {
             List<MemberLocation> memberLocations = new List<MemberLocation>();
@@ -53,15 +62,6 @@ namespace StatlerWaldorfCorp.RealityService.Location.Redis
             }
 
             return memberLocations;
-        }
-
-        public MemberLocation Get(Guid teamId, Guid memberId)
-        {
-            IDatabase db = connection.GetDatabase();
-
-            var value = (string)db.HashGet(teamId.ToString(), memberId.ToString());
-            MemberLocation ml = MemberLocation.FromJsonString(value);
-            return ml;
         }
     }
 }
