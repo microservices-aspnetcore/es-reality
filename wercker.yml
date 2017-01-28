@@ -55,24 +55,22 @@ build:
         code: |
           cp appsettings*json $WERCKER_OUTPUT_DIR/app/publish
           mkdir -p $WERCKER_OUTPUT_DIR/app/publish/app/tmp                    
-#    - script:
-#        name: integration-restore
-#        cwd: test/StatlerWaldorfCorp.RealityService.Tests.Integration
-#        code: |
-#            dotnet restore
-#    - script:
-#        name: integration-build
-#        cwd: test/StatlerWaldorfCorp.RealityService.Tests.Integration
-#        code: |                        
-#            dotnet build
-#    - script:
-#        name: integration-run
-#        cwd: test/StatlerWaldorfCorp.RealityService.Tests.Integration
-#        code: |            
-#            export RABBIT_URL=amqp://$RABBITMQ_PORT_5672_TCP_ADDR:5672
-#            export vcap__services__rediscloud__0__credentials__hostname=$REDISCACHE_PORT_6379_TCP_ADDR
-#            export vcap__services__rabbitmq__0__credentials__uri=$RABBIT_URL
-#            dotnet test    
+    - script:
+        name: integration-restore
+        cwd: test/StatlerWaldorfCorp.RealityService.Tests.Integration
+        code: |
+            dotnet restore
+    - script:
+        name: integration-build
+        cwd: test/StatlerWaldorfCorp.RealityService.Tests.Integration
+        code: |                        
+            dotnet build
+    - script:
+        name: integration-run
+        cwd: test/StatlerWaldorfCorp.RealityService.Tests.Integration
+        code: |            
+            export vcap__services__rediscloud__0__credentials__hostname=$REDISCACHE_PORT_6379_TCP_ADDR            
+            dotnet test    
 
 deploy:
   steps:
