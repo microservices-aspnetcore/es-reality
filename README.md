@@ -8,6 +8,7 @@ In some more higher-scale architectures with extreme performance demands, you mi
 _Note_ While using a full database for an integration layer is considered an anti-pattern, allowing two services to reach into the same distributed cache is actually a recommended optimization _provided the services both can handle cache misses_. In other words, the cache cannot be critical path and the application must be able to tolerate the cache going down and losing data.
 
 # Reality API
+
 TBD
 
 
