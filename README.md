@@ -1,3 +1,5 @@
+[![wercker status](https://app.wercker.com/status/711ad6c7e47017a65295fca0f899d17b/m/master "wercker status")](https://app.wercker.com/project/byKey/711ad6c7e47017a65295fca0f899d17b)
+
 # Reality
 This is the reality service for the Event Sourcing/CQRS sample from the book. Different languages and different groups have various names for this type of service. The role this fills within the CQRS pattern is the Query service. Its main responsibility is to serve up simple requests for information that are optimized for query, ideally from cached or query-optimized data.
 
