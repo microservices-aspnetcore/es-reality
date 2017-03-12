@@ -2,7 +2,7 @@
   
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <AssemblyName>StatlerWaldorfCorp.EventProcessor</AssemblyName>
+    <AssemblyName>StatlerWaldorfCorp.RealityService</AssemblyName>
     <OutputType>Exe</OutputType>    
   </PropertyGroup>
 
